@@ -3,8 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" th:href="@{/resumen/styles.css}">
 </head>
 <body>
 <h1>Hola desde Resumen</h1>
+<div class="container">
+    <div th:each="alumno : ${alumnos}">
+        <p th:text="${alumno.codigo}"></p>
+        <p th:text="${alumno.nombre}"></p>
+        <p th:text="${alumno.apellido}"></p>
+        <p th:text="${alumno.correo}"></p>
+        <p th:text="${alumno.fechaNacimiento}"></p>
+        <p th:text="${alumno.activo}"></p>
+    </div>
+</div>
 </body>
 </html>
