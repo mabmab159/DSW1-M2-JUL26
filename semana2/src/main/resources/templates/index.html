@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+</head>
+<body class="container">
+<h1>Esta es la pagina de inicio - Bienvenidos</h1>
+<p>Tienes las siguientes opciones disponibles: </p>
+<a href="/alumno/formulario">Formulario de registro</a>
+<p class="text-5xl">Puedes consultar los datos de los siguientes alumnos: </p>
+<ul th:each="alumno : ${alumnos}">
+    <a th:href="@{/alumno/informacion/{codigo}(codigo=${alumno.codigo})}" th:text="${alumno.nombre}" class="border rounded-md"></a>
+</ul>
+</body>
+</html>
