@@ -8,4 +8,6 @@ public interface IAlumnoService {
     List<Alumno> getAllAlumnos();
     Alumno getAlumnoByCodigo(String codigo);
     Alumno saveAlumno(Alumno alumno);
+    void deleteAlumno(String codigo);
+    Alumno updateAlumno(String codigo, Alumno alumno); // /actualizar/1, {codigo:100}
 }

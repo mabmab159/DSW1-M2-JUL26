@@ -37,4 +37,30 @@ public class AlumnoService implements IAlumnoService {
         alumnos.add(alumno);
         return alumno;
     }
+
+    @Override
+    public void deleteAlumno(String codigo) {
+        // 1. Algoritmo para eliminar un alumno desde el arreglo en base a su codigo - 7:05
+        alumnos.removeIf(alumno -> alumno.getCodigo().equals(codigo));
+    }
+
+    @Override
+    public Alumno updateAlumno(String codigo, Alumno alumnoActualizado) {
+        // 2. Algoritmo para actualizar un alumno, el alumno debe existir previamente (codigo) - 7:15
+        //UnaryOperator
+        /* alumnos.replaceAll(alumno -> alumno.getCodigo().equals(codigo) ? alumnoActualizado : alumno); //
+        return alumno;
+        */
+        // Forma dos
+        for (Alumno alumno : alumnos) {
+            if (alumno.getCodigo().equals(codigo)) {
+                alumno.setNombre(alumnoActualizado.getNombre());
+                alumno.setApellido(alumnoActualizado.getApellido());
+                alumno.setCorreo(alumnoActualizado.getCorreo());
+                alumno.setFechaNacimiento(alumnoActualizado.getFechaNacimiento());
+                break;
+            }
+        }
+        return alumnoActualizado;
+    }
 }

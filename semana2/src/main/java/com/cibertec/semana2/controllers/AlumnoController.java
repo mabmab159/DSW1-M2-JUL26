@@ -37,4 +37,25 @@ public class AlumnoController {
         iAlumnoService.saveAlumno(alumno);
         return "redirect:/alumno";
     }
+
+    // Actualizar
+    @GetMapping("/formulario/{codigo}") //Formulario con los datos previos
+    public String formulario(@PathVariable("codigo") String codigo, Model model)
+    {
+        model.addAttribute("alumno", iAlumnoService.getAlumnoByCodigo(codigo));
+        return "formularioActualizar";
+    }
+
+    @PostMapping("/actualizar/{codigo}") //Se va a activar en el boton actualizar o guardar
+    public String actualizar(@PathVariable("codigo") String codigo, @ModelAttribute Alumno alumno){
+        iAlumnoService.updateAlumno(codigo, alumno);
+        return "redirect:/alumno";
+    }
+
+    // Eliminar
+    @PostMapping("/eliminar/{codigo}")
+    public String eliminar(@PathVariable("codigo") String codigo){
+        iAlumnoService.deleteAlumno(codigo);
+        return "redirect:/alumno";
+    }
 }

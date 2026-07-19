@@ -1,6 +1,7 @@
 package com.cibertec.semana2.models;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
 
@@ -13,6 +14,7 @@ public class Alumno {
     private String nombre;
     private String apellido;
     private String correo;
+    @DateTimeFormat(iso = DateTimeFormat.ISO.DATE)
     private LocalDate fechaNacimiento;
     //LocalDate vs LocalDateTime
 }
