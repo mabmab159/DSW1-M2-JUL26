@@ -29,7 +29,9 @@ public class AlumnoController {
     @GetMapping("/formulario")
     public String formulario(Model model){
         model.addAttribute("alumno", new Alumno());
-        return "formulario";
+        model.addAttribute("ruta", "/alumno/guardar");
+        //return "formulario";
+        return "formulario2";
     }
 
     @PostMapping("/guardar")
@@ -43,7 +45,9 @@ public class AlumnoController {
     public String formulario(@PathVariable("codigo") String codigo, Model model)
     {
         model.addAttribute("alumno", iAlumnoService.getAlumnoByCodigo(codigo));
-        return "formularioActualizar";
+        model.addAttribute("ruta", "/alumno/actualizar/"+codigo);
+        //return "formularioActualizar";
+        return "formulario2";
     }
 
     @PostMapping("/actualizar/{codigo}") //Se va a activar en el boton actualizar o guardar
