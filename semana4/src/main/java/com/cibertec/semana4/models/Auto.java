@@ -15,7 +15,7 @@ public class Auto {
     @NotNull // Validar que sea un valor no nulo | "" ,  "  "
     @NotEmpty // Validar que no sea nulo, "" | "     "
     @NotBlank // Validar que no sea nulo, "", "       "
-    private String marca;
+    private Marca marca;
     @Size(min = 3, max = 10)
     private String modelo;
     @Pattern(regexp = "^[A-Z]{3}[0-9]{4}$")

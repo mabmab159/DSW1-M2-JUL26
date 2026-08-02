@@ -46,6 +46,9 @@ public class AutoService implements IAutoService { //Controller - Service - Repo
     @Override
     public Auto get(Long id) {
         return objectMapper.convertValue(iAutoRepository.findById(id).orElse(null), Auto.class);
+        // iAutoRepository.findByIdAndName(id, name)
+        // QueryNativos -> Solo funcionan para una BD especifica
+        // Query -> Pueden funcionar con cualquier BD
     }
 
     @Override
@@ -62,7 +65,8 @@ public class AutoService implements IAutoService { //Controller - Service - Repo
     }
 
     @Override
-    public List<Auto> getAllFiltered(Pageable pageable, String marca) {
-        return List.of();
+    public List<Auto> search(String marca, String modelo) {
+        return objectMapper.convertValue(iAutoRepository.searchByMarcaAndModeloNative(marca, modelo), new TypeReference<List<Auto>>() {
+        });
     }
 }

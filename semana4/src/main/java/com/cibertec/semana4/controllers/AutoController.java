@@ -36,8 +36,8 @@ public class AutoController {
         return ResponseEntity.ok(iAutoService.getAllFiltered(pageable));
     }
 
-    @GetMapping("/filtro/{marca}")
-    public ResponseEntity<List<Auto>> hello(Pageable pageable, @PathVariable String marca) {
-        return ResponseEntity.ok(iAutoService.getAllFiltered(pageable, marca));
+    @GetMapping("/search/{marca}/{modelo}")
+    public ResponseEntity<List<Auto>> search(@PathVariable String marca, @PathVariable String modelo) {
+        return ResponseEntity.ok(iAutoService.search(marca, modelo));
     }
 }
